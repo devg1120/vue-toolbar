@@ -4,6 +4,7 @@ import Toolbar from './components/Toolbar.vue'
 import ToolbarTip from './components/ToolbarTip.vue'
 import ToolbarTip2 from './components/ToolbarTip2.vue'
 import ToolbarTip3 from './components/ToolbarTip3.vue'
+import ToolbarTip4 from './components/ToolbarTip4.vue'
 
 
 import { CalendarIcon } from './components/@heroicons/vue/24/outline'
@@ -70,6 +71,7 @@ const toolbar_define = [
 },
 { icon : TrashIcon,
   name : "TrashIcon",
+  leftspace : false,
   handler : clickB,
   tooltip : "B         OK",
 },
@@ -84,6 +86,7 @@ function toolbarItemClick(data) {
 </script>
 
 <template>
+
 <div>
 	<p> "Toolbar" toolbar</p>
   <Toolbar />
@@ -92,15 +95,21 @@ function toolbarItemClick(data) {
 	<p> "ToolbarTip" tooltip and emit</p>
   <ToolbarTip />
 </div>
+
 <div>
 	<p> "ToolbarTip2" dynamic item</p>
   <ToolbarTip2 />
 </div>
+
 <div>
 	<p> "ToolbarTip3" for dynamic item</p>
   <ToolbarTip3 :toolbar_define="toolbar_define"  @toolbarItemClick="toolbarItemClick" />
 </div>
 
+<div>
+	<p> "ToolbarTip4" for dynamic item  leftspace</p>
+  <ToolbarTip4 :toolbar_define="toolbar_define"  @toolbarItemClick="toolbarItemClick" />
+</div>
 </template>
 
 <style scoped>

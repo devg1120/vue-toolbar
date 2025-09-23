@@ -24,7 +24,7 @@ import { EllipsisVerticalIcon } from './@heroicons/vue/24/outline'
 import { EllipsisHorizontalIcon } from './@heroicons/vue/24/outline'
 import { DocumentIcon } from './@heroicons/vue/24/outline'
 
-import ToolbarItem2  from './ToolbarItem2.vue'
+import ToolbarItem4  from './ToolbarItem4.vue'
 
 
 //import { CalendarIcon } from './@heroicons/vue/16/solid'
@@ -91,17 +91,22 @@ const toolbar_define = [
  </ToolbarItem>
 	-->
 
-
+<!--
  <template v-for="item in props.toolbar_define" v-bind:key="item">
       <ToolbarItem2  :tooltip="item.tooltip"  :name="item.name" @toolbarItemClick="handler"> 
       <component v-bind:is="item.icon"  class="icon" />
       </ToolbarItem2>
 </template>
+-->
 
-
+ <template v-for="item in props.toolbar_define" v-bind:key="item">
+      <ToolbarItem4  :tooltip="item.tooltip"  :name="item.name" @toolbarItemClick="handler"> 
+      <component v-bind:is="item.icon"  class="icon" :class="{leftspace : item.leftspace  }"/>
+      </ToolbarItem4>
+</template>
 <!--
  <template v-for="item in props.toolbar_define" v-bind:key="item">
-      <ToolbarItem2  :tooltip="item.tooltip"  :name="item.name" @toolbarItemClick="handler"> 
+      <ToolbarItem4  :tooltip="item.tooltip"  :name="item.name" @toolbarItemClick="handler"> 
       <div v-if="item.leftspace">
          <component v-bind:is="item.icon"  class="icon leftspace" />
       </div>
@@ -109,7 +114,7 @@ const toolbar_define = [
          <component v-bind:is="item.icon"  class="icon" />
       </div>
 
-      </ToolbarItem2>
+      </ToolbarItem4>
 </template>
 -->
 
