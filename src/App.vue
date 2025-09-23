@@ -6,8 +6,27 @@ import ToolbarTip2 from './components/ToolbarTip2.vue'
 import ToolbarTip3 from './components/ToolbarTip3.vue'
 
 
-import { ArrowUturnRightIcon  } from './components/@heroicons/vue/24/outline'
-import { ArrowUturnLeftIcon  } from './components/@heroicons/vue/24/outline'
+import { CalendarIcon } from './components/@heroicons/vue/24/outline'
+import { TrashIcon } from    './components/@heroicons/vue/24/outline'
+import { XMarkIcon } from    './components/@heroicons/vue/24/outline'
+import { Square2StackIcon } from       './components/@heroicons/vue/24/outline'
+import { RectangleGroupIcon  } from    './components/@heroicons/vue/24/outline'
+import { PlusIcon  } from              './components/@heroicons/vue/24/outline'
+import { MinusIcon  } from             './components/@heroicons/vue/24/outline'
+import { PencilSquareIcon  } from      './components/@heroicons/vue/24/outline'
+import { PaperAirplaneIcon  } from     './components/@heroicons/vue/24/outline'
+import { PaperClipIcon  } from         './components/@heroicons/vue/24/outline'
+import { ArrowPathIcon  } from         './components/@heroicons/vue/24/outline'
+import { ArrowUturnRightIcon  } from   './components/@heroicons/vue/24/outline'
+import { ArrowUturnLeftIcon  } from    './components/@heroicons/vue/24/outline'
+import { ArrowsPointingOutIcon  } from './components/@heroicons/vue/24/outline'
+import { ArrowsPointingInIcon  } from  './components/@heroicons/vue/24/outline'
+import { Cog6ToothIcon  } from         './components/@heroicons/vue/24/outline'
+
+import { EllipsisVerticalIcon } from   './components/@heroicons/vue/24/outline'
+import { EllipsisHorizontalIcon } from './components/@heroicons/vue/24/outline'
+import { DocumentIcon } from           './components/@heroicons/vue/24/outline'
+
 
 function clickA( data ) {
 
@@ -30,6 +49,27 @@ const toolbar_define = [
 },
 { icon : ArrowUturnLeftIcon,
   name : "ArrowUturnLeftIcon",
+  handler : clickB,
+  tooltip : "B         OK",
+},
+{ icon : RectangleGroupIcon,
+  name : "RectangleGroupIcon",
+  handler : clickB,
+  tooltip : "B         OK",
+},
+{ icon : Square2StackIcon,
+  name : "Square2StackIcon",
+  handler : clickB,
+  tooltip : "B         OK",
+},
+{ icon : CalendarIcon,
+  name : "CalendarIcon",
+  leftspace : true,
+  handler : clickB,
+  tooltip : "B         OK",
+},
+{ icon : TrashIcon,
+  name : "TrashIcon",
   handler : clickB,
   tooltip : "B         OK",
 },

@@ -91,11 +91,25 @@ const toolbar_define = [
  </ToolbarItem>
 	-->
 
+<!--
  <template v-for="item in props.toolbar_define" v-bind:key="item">
       <ToolbarItem2  :tooltip="item.tooltip"  :name="item.name" @toolbarItemClick="handler"> 
       <component v-bind:is="item.icon"  class="icon" />
       </ToolbarItem2>
 </template>
+-->
+ <template v-for="item in props.toolbar_define" v-bind:key="item">
+      <ToolbarItem2  :tooltip="item.tooltip"  :name="item.name" @toolbarItemClick="handler"> 
+      <div v-if="item.leftspace">
+         <component v-bind:is="item.icon"  class="icon leftspace" />
+      </div>
+      <div v-else>
+         <component v-bind:is="item.icon"  class="icon" />
+      </div>
+
+      </ToolbarItem2>
+</template>
+
 
 <!--
   <RectangleGroupIcon class="icon" />
