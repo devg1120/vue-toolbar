@@ -135,6 +135,10 @@ const toolbar_define = [
 
 }
  
+.icon.mouse-down{
+ box-shadow: -2px -2px 0px 0px lightgray;
+}
+
 .leftspace {
  margin-left: 20px;
 

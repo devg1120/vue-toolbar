@@ -9,10 +9,12 @@ const emit = defineEmits(['toolbarItemClick']);
 const item  = useTemplateRef('item')
 
 function item_mousedown(e) {
+     //item.classList.add("down")
      console.log("down", e.target);
       emit('toolbarItemClick', props.name)
 }
 function item_mouseup(e) {
+     //item.classList.removw("down")
      console.log("up");
 }
 
@@ -31,8 +33,20 @@ onMounted(() => {
            const activeTooltip = targetIcon.parentElement.nextElementSibling
            activeTooltip.classList.remove("tip_active")
        });
-       icon.addEventListener("mousedown", item_mousedown);
-       icon.addEventListener("mouseup", item_mouseup);
+       //icon.addEventListener("mousedown", item_mousedown);
+       //icon.addEventListener("mouseup", item_mouseup);
+       icon.addEventListener("mousedown", function (e) {
+           const targetIcon = this
+           //const icon = targetIcon.parentElement
+           targetIcon.classList.add("mouse-down")
+           item_mousedown(e);
+       });
+       icon.addEventListener("mouseup", function (e) {
+           const targetIcon = this
+           //const icon = targetIcon.parentElement
+           targetIcon.classList.remove("mouse-down")
+           item_mouseup(e);
+       });
  
    });
 
@@ -53,8 +67,17 @@ onMounted(() => {
         </div>
 </template>
 
-<style scoped>
+<style >
+/*
+.icon {
+ box-shadow: 2px 2px 0px 0px lightgray;
+ box-shadow: -2px -2px 0px 0px lightgray;
+}
+*/
 
+</style >
+
+<style scoped>
 .tooltip {
     position: relative;
     top: 50px;
