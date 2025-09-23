@@ -18,6 +18,11 @@ function item_mouseup(e) {
      console.log("up");
 }
 
+function item_toggle_switch(e, state) {
+     //item.classList.removw("down")
+     console.log("toggle", e, state);
+}
+
 onMounted(() => {
      const icons = item.value.querySelectorAll(".icon")
      icons.forEach((icon) => {
@@ -33,17 +38,33 @@ onMounted(() => {
            const activeTooltip = targetIcon.parentElement.nextElementSibling
            activeTooltip.classList.remove("tip_active")
        });
-       //icon.addEventListener("mousedown", item_mousedown);
+       //icon.addEventListener("mousedown", item_mousedown) ;
        //icon.addEventListener("mouseup", item_mouseup);
        icon.addEventListener("mousedown", function (e) {
            const targetIcon = this
            //const icon = targetIcon.parentElement
+	   if (targetIcon.classList.contains("toggle")) {
+              //console.log("TOGGLE DOWN");
+              targetIcon.classList.toggle("mouse-down")
+	      if (targetIcon.classList.contains("mouse-down")) {
+                  item_toggle_switch(e, true);
+
+	      } else {
+                  item_toggle_switch(e, false);
+
+	      }
+	      return;
+	   }
            targetIcon.classList.add("mouse-down")
            item_mousedown(e);
        });
        icon.addEventListener("mouseup", function (e) {
            const targetIcon = this
            //const icon = targetIcon.parentElement
+	   if (targetIcon.classList.contains("toggle")) {
+              //console.log("TOGGLE UP");
+	      return;
+	   }
            targetIcon.classList.remove("mouse-down")
            item_mouseup(e);
        });

@@ -101,7 +101,7 @@ const toolbar_define = [
 
  <template v-for="item in props.toolbar_define" v-bind:key="item">
       <ToolbarItem4  :tooltip="item.tooltip"  :name="item.name" @toolbarItemClick="handler"> 
-      <component v-bind:is="item.icon"  class="icon" :class="{leftspace : item.leftspace  }"/>
+      <component v-bind:is="item.icon"  class="icon" :class="{leftspace : item.leftspace, toggle : item.toggle  }"/>
       </ToolbarItem4>
 </template>
 <!--

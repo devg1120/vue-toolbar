@@ -71,7 +71,8 @@ const toolbar_define = [
 },
 { icon : TrashIcon,
   name : "TrashIcon",
-  leftspace : false,
+  leftspace : true,
+  toggle : true,
   handler : clickB,
   tooltip : "B         OK",
 },
@@ -107,7 +108,7 @@ function toolbarItemClick(data) {
 </div>
 
 <div>
-	<p> "ToolbarTip4" for dynamic item  leftspace</p>
+	<p> "ToolbarTip4" for dynamic item  leftspace & toggle </p>
   <ToolbarTip4 :toolbar_define="toolbar_define"  @toolbarItemClick="toolbarItemClick" />
 </div>
 </template>
