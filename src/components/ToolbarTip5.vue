@@ -159,7 +159,7 @@ const toolbar_define = [
   margin-right: 0px;
   padding-left:10px;
   padding-right:10px;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5;*/
 }
 
 .icon {
