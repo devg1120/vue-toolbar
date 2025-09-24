@@ -5,6 +5,7 @@ import ToolbarTip from './components/ToolbarTip.vue'
 import ToolbarTip2 from './components/ToolbarTip2.vue'
 import ToolbarTip3 from './components/ToolbarTip3.vue'
 import ToolbarTip4 from './components/ToolbarTip4.vue'
+import ToolbarTip5 from './components/ToolbarTip5.vue'
 
 
 import { CalendarIcon } from './components/@heroicons/vue/24/outline'
@@ -71,12 +72,69 @@ const toolbar_define = [
 },
 { icon : TrashIcon,
   name : "TrashIcon",
-  leftspace : true,
+  //leftspace : true,
   toggle : true,
   handler : clickB,
   tooltip : "B         OK",
 },
+{ icon :XMarkIcon ,
+  name : "XMarkIcon",
+  handler : clickB,
+  tooltip : "B         OK",
+},
+{ icon : PlusIcon,
+  name : "PlusIcon",
+  handler : clickB,
+  tooltip : "B         OK",
+},
+{ icon : MinusIcon,
+  name : "MinusIcon",
+  handler : clickB,
+  tooltip : "B         OK",
+},
 
+
+{ icon : PencilSquareIcon,
+  name : "PencilSquareIcon",
+  leftspace: true,
+  handler : clickB,
+  tooltip : "B         OK",
+},
+
+{ icon : PaperAirplaneIcon,
+  name : "PaperAirplaneIcon",
+  handler : clickB,
+  tooltip : "B         OK",
+},
+{ icon : PaperClipIcon,
+  name : "PaperClipIcon",
+  handler : clickB,
+  tooltip : "B         OK",
+},
+
+/*
+  <ArrowsPointingOutIcon class="icon" />
+  <ArrowsPointingInIcon class="icon" />
+  <ArrowPathIcon class="icon" />
+  <DocumentIcon class="icon" />
+*/
+
+{ icon : EllipsisVerticalIcon,
+  name : "EllipsisVerticalIcon",
+  alignright: true,
+  handler : clickB,
+  tooltip : "B         OK",
+},
+{ icon : EllipsisHorizontalIcon,
+  name : "EllipsisHorizontalIcon",
+  handler : clickB,
+  tooltip : "B         OK",
+},
+{ icon : Cog6ToothIcon,
+  name : "Cog6ToothIcon",
+  handler : clickB,
+  tooltip : "B         OK",
+},
 ];
 
 function toolbarItemClick(data) {
@@ -110,6 +168,11 @@ function toolbarItemClick(data) {
 <div>
 	<p> "ToolbarTip4" for dynamic item  leftspace & toggle </p>
   <ToolbarTip4 :toolbar_define="toolbar_define"  @toolbarItemClick="toolbarItemClick" />
+</div>
+
+<div>
+	<p> "ToolbarTip5" for dynamic item  leftspace & toggle  & align right</p>
+  <ToolbarTip5 :toolbar_define="toolbar_define"  @toolbarItemClick="toolbarItemClick" />
 </div>
 </template>
 
