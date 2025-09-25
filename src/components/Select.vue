@@ -1,3 +1,35 @@
+
+<script setup lang="ts">
+import { ref } from "vue";
+import VueSelect from "vue3-select-component";
+
+const options = [
+      { label: 'Option #1', value: 'option_1' },
+      { label: 'Option #2', value: 'option_2' },
+      { label: 'Option #3', value: 'option_3' },
+    ];
+
+const selected = ref("");
+
+
+function select(option) {
+ console.log("*** selected:", option.value, selected.value)
+
+}
+
+</script>
+
+<template>
+  <VueSelect
+    v-model="selected"
+    :options="options"
+    placeholder="Select an option"
+
+    @option-selected="select"
+  />
+</template>
+
+<!--
 <script setup lang="ts">
 import type { Option } from "vue3-select-component";
 import { ref } from "vue";
@@ -22,4 +54,4 @@ const userOptions: UserOption[] = [
     placeholder="Pick a user"
   />
 </template>
-
+-->
