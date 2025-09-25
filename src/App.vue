@@ -30,7 +30,7 @@ import { EllipsisVerticalIcon } from   './components/@heroicons/vue/24/outline'
 import { EllipsisHorizontalIcon } from './components/@heroicons/vue/24/outline'
 import { DocumentIcon } from           './components/@heroicons/vue/24/outline'
 
-
+/*
 function clickA( data ) {
 
    console.log("*************** Click A:", data);
@@ -47,6 +47,9 @@ const handler_define = [
   "clickA",
   "clickB",
 ];
+*/
+
+
 
 const toolbar_define = [
 
@@ -175,10 +178,8 @@ function toolbarItemToggle(data, state) {
 
 <div>
 	<p> "ToolbarTip6" hundler update</p>
-  <ToolbarTip6 :toolbar_define="toolbar_define"  :handler_define="handler_define" 
+  <ToolbarTip6 :toolbar_define="toolbar_define"  
 		                                 @toolbarItemClick="toolbarItemClick"  
-                                                 @clickA="clickA"
-                                                 @clickB="clickB"
 		                                 @toolbarItemToggle="toolbarItemToggle"  
 						 />
 </div>

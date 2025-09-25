@@ -31,15 +31,26 @@ import ToolbarItem6  from './ToolbarItem6.vue'
 
 //import { CalendarIcon } from './@heroicons/vue/16/solid'
 
-const props = defineProps(['toolbar_define', 'handler_define']);
+//const props = defineProps(['toolbar_define', 'handler_define']);
+const props = defineProps(['toolbar_define' ]);
 
-//emit_data = props.handler_define ?? [];
-emit_data.push( props.handler_define );
+//emit_data = emit_data.concat( props.handler_define );
+//emit_data.concat( getHandler() );
 
-//const emit = defineEmits(['toolbarItemClick', 'clickA', 'clickB']);
-const emit = defineEmits(emit_data);
+const emit = defineEmits(['toolbarItemClick', 'toolbarItemToggle']);
+//console.log(emit_data);
+//const emit = defineEmits(emit_data);
 
-
+/*
+function getHandler( ) {
+    let handlers = [];
+    for ( let x = 0; x < props.toolbar_define.length ;x++) {
+	 if (props.toolbar_define[x].hasOwnProperty('handler')) {
+	     handlers.push(props.toolbar_define[x].handler);
+	 }
+    }
+    return   handlers;
+}
 function indivisualHandler( name ) {
     for ( let x = 0; x < props.toolbar_define.length ;x++) {
 	 if (props.toolbar_define[x].name == name) {
@@ -54,13 +65,15 @@ function indivisualHandler( name ) {
     }
     return  { result:false, handler:null }
 }
-
+*/
 function toggle_handler( name , state) {
 
       emit('toolbarItemToggle', name, state)
 
 }
 function click_handler( name ) {
+      emit('toolbarItemClick', name)
+/*
    let i = indivisualHandler( name ) ;
 
    //console.log("Click handler :", name, i.result, i.handler);
@@ -70,7 +83,7 @@ function click_handler( name ) {
    } else {
       emit(i.handler, name)
    }
-   
+  */ 
 }
 
 onMounted(() => {
