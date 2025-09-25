@@ -1,6 +1,8 @@
+
+
 <script setup lang="ts">
 
-import { ref , defineEmits} from 'vue';
+import { ref , defineEmits, onMounted } from 'vue';
 //import VueDatePicker from '@vuepic/vue-datepicker';
 //import '@vuepic/vue-datepicker/dist/main.css'
 import { CalendarIcon } from './@heroicons/vue/24/outline'
@@ -18,7 +20,7 @@ import { ArrowUturnRightIcon  } from './@heroicons/vue/24/outline'
 import { ArrowUturnLeftIcon  } from './@heroicons/vue/24/outline'
 import { ArrowsPointingOutIcon  } from './@heroicons/vue/24/outline'
 import { ArrowsPointingInIcon  } from './@heroicons/vue/24/outline'
-import { Cog6ToothIcon  } from './@heroicons/vue/24/outline'
+import {  Cog6ToothIcon  } from './@heroicons/vue/24/outline'
 
 import { EllipsisVerticalIcon } from './@heroicons/vue/24/outline'
 import { EllipsisHorizontalIcon } from './@heroicons/vue/24/outline'
@@ -29,38 +31,68 @@ import ToolbarItem6  from './ToolbarItem6.vue'
 
 //import { CalendarIcon } from './@heroicons/vue/16/solid'
 
-const props = defineProps(['toolbar_define']);
+const props = defineProps(['toolbar_define', 'handler_define']);
 
-const emit = defineEmits(['toolbarItemClick']);
+//emit_data = props.handler_define ?? [];
+emit_data.push( props.handler_define );
+
+//const emit = defineEmits(['toolbarItemClick', 'clickA', 'clickB']);
+const emit = defineEmits(emit_data);
 
 
-function indvisualHandler( name ) {
-    for ( let x = 0; x < props.toolbar_define.length ; x++) {
-         //console.log(props.toolbar_define[x].name)
+function indivisualHandler( name ) {
+    for ( let x = 0; x < props.toolbar_define.length ;x++) {
 	 if (props.toolbar_define[x].name == name) {
-	    if (props.toolbar_define[x].indhandler) {
-	         return true
+	    //if (props.toolbar_define[x].indhandler) {
+	    if (props.toolbar_define[x].handler) {
+		 return { result:true, handler:props.toolbar_define[x].handler }
+		 //return { result:true, handler:null }
             } else {
+	         return  { result:false, handler:null }
 	    }
 	 }
     }
-    return false;
-}
-function handler( data ) {
-   let i = indvisualHandler( name ) ;
-
-   console.log("Click handler :", data, i);
-   emit('toolbarItemClick', data)
+    return  { result:false, handler:null }
 }
 
+function toggle_handler( name , state) {
 
+      emit('toolbarItemToggle', name, state)
+
+}
+function click_handler( name ) {
+   let i = indivisualHandler( name ) ;
+
+   //console.log("Click handler :", name, i.result, i.handler);
+      
+   if (!i.result) {
+      emit('toolbarItemClick', name)
+   } else {
+      emit(i.handler, name)
+   }
+   
+}
+
+onMounted(() => {
+ // emit = defineEmits(props.handler_define)
+});
+
+
+</script>
+
+<script lang="ts" >
+ //const emit_data= ['toolbarItemClick', 'clickA', 'clickB'];
+ let emit_data = ['toolbarItemClick', 'toolbarItemToggle'];
+export default {}
 </script>
 
 <template>
 <div class="toolbar-base">
 
  <template v-for="item in props.toolbar_define" v-bind:key="item">
-	 <ToolbarItem6  :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" @toolbarItemClick="handler"  > 
+	 <ToolbarItem6  :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
+	                    @toolbarItemClick="click_handler"   
+	                    @toolbarItemToggle="toggle_handler"  > 
       <component v-bind:is="item.icon"  class="icon" :class="{ leftspace : item.leftspace, toggle : item.toggle   }"/>
       </ToolbarItem6>
 </template>

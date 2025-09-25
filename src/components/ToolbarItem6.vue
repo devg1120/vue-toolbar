@@ -5,23 +5,24 @@ import { ref , defineProps, defineEmits, onMounted, useTemplateRef} from 'vue';
 const props = defineProps(['tooltip', 'name','alignright']);
 
 
-const emit = defineEmits(['toolbarItemClick']);
+const emit = defineEmits(['toolbarItemClick', 'toolbarItemToggle']);
 const item  = useTemplateRef('item')
 
 function item_mousedown(e) {
      //item.classList.add("down")
      //console.log("down", e.target);
-     console.log("down", props.name);
+     //console.log("down", props.name);
       emit('toolbarItemClick', props.name)
 }
 function item_mouseup(e) {
      //item.classList.removw("down")
-     console.log("up");
+     //console.log("up");
 }
 
 function item_toggle_switch(e, state) {
      //item.classList.removw("down")
-     console.log("toggle", props.name,  state);
+     //console.log("toggle", props.name,  state);
+      emit('toolbarItemToggle', props.name, state)
 }
 
 onMounted(() => {

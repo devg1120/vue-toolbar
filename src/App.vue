@@ -33,65 +33,62 @@ import { DocumentIcon } from           './components/@heroicons/vue/24/outline'
 
 function clickA( data ) {
 
-   console.log("Click A:", data);
-   alert("Click A");
+   console.log("*************** Click A:", data);
+   //alert("Click A");
 }
 
 function clickB( data ) {
 
-   console.log("Click B:", data);
-   alert("Click B");
+   console.log("*************** Click B:", data);
+   //alert("Click B");
 }
+
+const handler_define = [
+  "clickA",
+  "clickB",
+];
 
 const toolbar_define = [
 
 { icon : ArrowUturnRightIcon,
   name : "ArrowUturnRightIcon",
-  handler : clickA,
-  indhandler : true,
+  handler : "clickA",
   tooltip : "A         OK",
 },
 { icon : ArrowUturnLeftIcon,
   name : "ArrowUturnLeftIcon",
-  handler : clickB,
   tooltip : "B         OK",
+  handler : "clickB",
 },
 { icon : RectangleGroupIcon,
   name : "RectangleGroupIcon",
-  handler : clickB,
   tooltip : "B         OK",
 },
 { icon : Square2StackIcon,
   name : "Square2StackIcon",
-  handler : clickB,
   tooltip : "B         OK",
 },
 { icon : CalendarIcon,
   name : "CalendarIcon",
   leftspace : true,
-  handler : clickB,
   tooltip : "B         OK",
 },
 { icon : TrashIcon,
   name : "TrashIcon",
   //leftspace : true,
   toggle : true,
-  handler : clickB,
   tooltip : "B         OK",
 },
 { icon :XMarkIcon ,
   name : "XMarkIcon",
-  handler : clickB,
   tooltip : "B         OK",
 },
 { icon : PlusIcon,
   name : "PlusIcon",
-  handler : clickB,
   tooltip : "B         OK",
 },
 { icon : MinusIcon,
   name : "MinusIcon",
-  handler : clickB,
   tooltip : "B         OK",
 },
 
@@ -99,18 +96,15 @@ const toolbar_define = [
 { icon : PencilSquareIcon,
   name : "PencilSquareIcon",
   leftspace: true,
-  handler : clickB,
   tooltip : "B         OK",
 },
 
 { icon : PaperAirplaneIcon,
   name : "PaperAirplaneIcon",
-  handler : clickB,
   tooltip : "B         OK",
 },
 { icon : PaperClipIcon,
   name : "PaperClipIcon",
-  handler : clickB,
   tooltip : "B         OK",
 },
 
@@ -124,23 +118,25 @@ const toolbar_define = [
 { icon : EllipsisVerticalIcon,
   name : "EllipsisVerticalIcon",
   alignright: true,
-  handler : clickB,
   tooltip : "B         OK",
 },
 { icon : EllipsisHorizontalIcon,
   name : "EllipsisHorizontalIcon",
-  handler : clickB,
   tooltip : "B         OK",
 },
 { icon : Cog6ToothIcon,
   name : "Cog6ToothIcon",
-  handler : clickB,
   tooltip : "B         OK",
 },
 ];
 
 function toolbarItemClick(data) {
   console.log(" App toolbar click:", data);
+
+
+}
+function toolbarItemToggle(data, state) {
+  console.log(" App toolbar toggle:", data, state);
 
 
 }
@@ -179,7 +175,12 @@ function toolbarItemClick(data) {
 
 <div>
 	<p> "ToolbarTip6" hundler update</p>
-  <ToolbarTip6 :toolbar_define="toolbar_define"  @toolbarItemClick="toolbarItemClick" />
+  <ToolbarTip6 :toolbar_define="toolbar_define"  :handler_define="handler_define" 
+		                                 @toolbarItemClick="toolbarItemClick"  
+                                                 @clickA="clickA"
+                                                 @clickB="clickB"
+		                                 @toolbarItemToggle="toolbarItemToggle"  
+						 />
 </div>
 </template>
 
