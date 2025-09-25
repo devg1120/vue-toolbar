@@ -7,6 +7,7 @@ import ToolbarTip3 from './components/ToolbarTip3.vue'
 import ToolbarTip4 from './components/ToolbarTip4.vue'
 import ToolbarTip5 from './components/ToolbarTip5.vue'
 import ToolbarTip6 from './components/ToolbarTip6.vue'
+import ToolbarTip7 from './components/ToolbarTip7.vue'
 
 
 import { CalendarIcon } from './components/@heroicons/vue/24/outline'
@@ -29,6 +30,8 @@ import { Cog6ToothIcon  } from         './components/@heroicons/vue/24/outline'
 import { EllipsisVerticalIcon } from   './components/@heroicons/vue/24/outline'
 import { EllipsisHorizontalIcon } from './components/@heroicons/vue/24/outline'
 import { DocumentIcon } from           './components/@heroicons/vue/24/outline'
+
+import Select from "./components/Select.vue";
 
 /*
 function clickA( data ) {
@@ -111,6 +114,11 @@ const toolbar_define = [
   tooltip : "B         OK",
 },
 
+{ icon : Select,
+  select: true,
+  name : "Select",
+  tooltip : "Select         OK",
+},
 /*
   <ArrowsPointingOutIcon class="icon" />
   <ArrowsPointingInIcon class="icon" />
@@ -151,6 +159,7 @@ function toolbarItemToggle(data, state) {
 	<p> "Toolbar" toolbar</p>
   <Toolbar />
 </div>
+<!--
 <div>
 	<p> "ToolbarTip" tooltip and emit</p>
   <ToolbarTip />
@@ -175,10 +184,17 @@ function toolbarItemToggle(data, state) {
 	<p> "ToolbarTip5" for dynamic item  leftspace & toggle  & align right</p>
   <ToolbarTip5 :toolbar_define="toolbar_define"  @toolbarItemClick="toolbarItemClick" />
 </div>
-
+-->
 <div>
 	<p> "ToolbarTip6" hundler update</p>
   <ToolbarTip6 :toolbar_define="toolbar_define"  
+		                                 @toolbarItemClick="toolbarItemClick"  
+		                                 @toolbarItemToggle="toolbarItemToggle"  
+						 />
+</div>
+<div>
+	<p> "ToolbarTip7" select menu</p>
+  <ToolbarTip7 :toolbar_define="toolbar_define"  
 		                                 @toolbarItemClick="toolbarItemClick"  
 		                                 @toolbarItemToggle="toolbarItemToggle"  
 						 />

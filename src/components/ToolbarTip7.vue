@@ -26,46 +26,15 @@ import { EllipsisVerticalIcon } from './@heroicons/vue/24/outline'
 import { EllipsisHorizontalIcon } from './@heroicons/vue/24/outline'
 import { DocumentIcon } from './@heroicons/vue/24/outline'
 
-import ToolbarItem6  from './ToolbarItem6.vue'
+import ToolbarItem7  from './ToolbarItem7.vue'
+import ToolbarItemSelect7  from './ToolbarItemSelect7.vue'
 
 
-//import { CalendarIcon } from './@heroicons/vue/16/solid'
 
-//const props = defineProps(['toolbar_define', 'handler_define']);
 const props = defineProps(['toolbar_define' ]);
 
-//emit_data = emit_data.concat( props.handler_define );
-//emit_data.concat( getHandler() );
 
 const emit = defineEmits(['toolbarItemClick', 'toolbarItemToggle']);
-//console.log(emit_data);
-//const emit = defineEmits(emit_data);
-
-/*
-function getHandler( ) {
-    let handlers = [];
-    for ( let x = 0; x < props.toolbar_define.length ;x++) {
-	 if (props.toolbar_define[x].hasOwnProperty('handler')) {
-	     handlers.push(props.toolbar_define[x].handler);
-	 }
-    }
-    return   handlers;
-}
-function indivisualHandler( name ) {
-    for ( let x = 0; x < props.toolbar_define.length ;x++) {
-	 if (props.toolbar_define[x].name == name) {
-	    //if (props.toolbar_define[x].indhandler) {
-	    if (props.toolbar_define[x].handler) {
-		 return { result:true, handler:props.toolbar_define[x].handler }
-		 //return { result:true, handler:null }
-            } else {
-	         return  { result:false, handler:null }
-	    }
-	 }
-    }
-    return  { result:false, handler:null }
-}
-*/
 function toggle_handler( name , state) {
 
       emit('toolbarItemToggle', name, state)
@@ -73,17 +42,6 @@ function toggle_handler( name , state) {
 }
 function click_handler( name ) {
       emit('toolbarItemClick', name)
-/*
-   let i = indivisualHandler( name ) ;
-
-   //console.log("Click handler :", name, i.result, i.handler);
-      
-   if (!i.result) {
-      emit('toolbarItemClick', name)
-   } else {
-      emit(i.handler, name)
-   }
-  */ 
 }
 
 onMounted(() => {
@@ -93,25 +51,30 @@ onMounted(() => {
 
 </script>
 
-<script lang="ts" >
- //const emit_data= ['toolbarItemClick', 'clickA', 'clickB'];
- let emit_data = ['toolbarItemClick', 'toolbarItemToggle'];
-export default {}
-</script>
 
 <template>
 <div class="toolbar-base">
 
  <template v-for="item in props.toolbar_define" v-bind:key="item">
-	 <ToolbarItem6 v-if="!item.select"  :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
+     <ToolbarItem7  v-if="!item.select" :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
 	                    @toolbarItemClick="click_handler"   
 	                    @toolbarItemToggle="toggle_handler"  > 
-      <component v-bind:is="item.icon"  class="icon" :class="{ leftspace : item.leftspace, toggle : item.toggle   }"/>
-      </ToolbarItem6>
+        <component v-bind:is="item.icon"  class="icon" :class="{ leftspace : item.leftspace, toggle : item.toggle   }"/>
+     </ToolbarItem7>
+     <ToolbarItemSelect7  v-if="item.select" :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
+	                    @toolbarItemClick="click_handler"   
+	                    @toolbarItemToggle="toggle_handler"  > 
+        <component v-bind:is="item.icon"  class="select" :class="{ leftspace : item.leftspace, toggle : item.toggle   }"/>
+     </ToolbarItemSelect7>
 </template>
 
 	</div>
 </template>
+
+<style >
+
+</style>
+
 <style scoped>
 
 .toolbar-base {
@@ -127,11 +90,36 @@ export default {}
  width : 22px;
  height : 22px;
  cursor: pointer;
+ /*margin: 3px 2px;*/
  margin: 3px 2px;
  padding: 3px 4px;
  box-shadow: 2px 2px 0px 0 lightgray;
 }
  
+.select {
+ margin: 3px 2px;
+ padding: 0px 0px;
+  --vs-border: 0;
+  --vs-border-radius: 8px;
+  --vs-padding: 0px 8px;
+  --vs-min-height: 28px;
+  /*
+  font-size: 15px;
+  font-family: monospace;
+  */
+  --vs-font-family: inherit;
+  box-shadow: 2px 2px 0px 0 lightgray;
+}
+
+.menu {
+  font-family: monospace;
+}
+
+.menu-option {
+  font-family: monospace;
+
+}
+
 .icon.mouse-down{
  box-shadow: -2px -2px 0px 0px lightgray;
 }
