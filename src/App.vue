@@ -6,6 +6,7 @@ import ToolbarTip2 from './components/ToolbarTip2.vue'
 import ToolbarTip3 from './components/ToolbarTip3.vue'
 import ToolbarTip4 from './components/ToolbarTip4.vue'
 import ToolbarTip5 from './components/ToolbarTip5.vue'
+import ToolbarTip6 from './components/ToolbarTip6.vue'
 
 
 import { CalendarIcon } from './components/@heroicons/vue/24/outline'
@@ -47,6 +48,7 @@ const toolbar_define = [
 { icon : ArrowUturnRightIcon,
   name : "ArrowUturnRightIcon",
   handler : clickA,
+  indhandler : true,
   tooltip : "A         OK",
 },
 { icon : ArrowUturnLeftIcon,
@@ -173,6 +175,11 @@ function toolbarItemClick(data) {
 <div>
 	<p> "ToolbarTip5" for dynamic item  leftspace & toggle  & align right</p>
   <ToolbarTip5 :toolbar_define="toolbar_define"  @toolbarItemClick="toolbarItemClick" />
+</div>
+
+<div>
+	<p> "ToolbarTip6" hundler update</p>
+  <ToolbarTip6 :toolbar_define="toolbar_define"  @toolbarItemClick="toolbarItemClick" />
 </div>
 </template>
 
