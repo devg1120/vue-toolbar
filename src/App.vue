@@ -32,6 +32,7 @@ import { EllipsisHorizontalIcon } from './components/@heroicons/vue/24/outline'
 import { DocumentIcon } from           './components/@heroicons/vue/24/outline'
 
 import Select from "./components/Select.vue";
+import Select2 from "./components/Select2.vue";
 
 /*
 function clickA( data ) {
@@ -117,6 +118,11 @@ const toolbar_define = [
 { icon : Select,
   select: true,
   name : "Select",
+  tooltip : "Select         OK",
+},
+{ icon : Select2,
+  select: true,
+  name : "Select2",
   tooltip : "Select         OK",
 },
 /*

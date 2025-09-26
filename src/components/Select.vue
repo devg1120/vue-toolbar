@@ -44,7 +44,7 @@ https://vue3-select-component.vercel.app/slots.html
 
 <template>
   <VueSelect v-model="selected" :options="options"
-    placeholder="Select an option"
+    placeholder="Select"
     @option-selected="select"
   >
     <template #option="{ option, index }">
