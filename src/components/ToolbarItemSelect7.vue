@@ -75,7 +75,7 @@ onMounted(() => {
 </script>
 
 <template >
- <div class="item" ref="item"  :class="{ alignright : props.alignright  }" >
+ <div class="selectitem" ref="item"  :class="{ alignright : props.alignright  }" >
   <slot  ></slot>
  </div>
         <div class="tooltip" >
@@ -94,6 +94,10 @@ onMounted(() => {
 </style >
 
 <style scoped>
+
+.selectitem {
+}
+
 .tooltip {
     position: relative;
     top: 50px;

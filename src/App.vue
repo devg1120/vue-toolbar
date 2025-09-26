@@ -120,11 +120,18 @@ const toolbar_define = [
   name : "Select",
   tooltip : "Select         OK",
 },
+
+{ icon : PaperAirplaneIcon,
+  name : "PaperAirplaneIcon",
+  tooltip : "B         OK",
+},
+
 { icon : Select2,
   select: true,
   name : "Select2",
   tooltip : "Select         OK",
 },
+
 /*
   <ArrowsPointingOutIcon class="icon" />
   <ArrowsPointingInIcon class="icon" />

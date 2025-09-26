@@ -96,7 +96,7 @@ onMounted(() => {
  box-shadow: 2px 2px 0px 0 lightgray;
 }
  
-.select {
+.select  {
  margin: 3px 2px;
  padding: 0px 0px;
   --vs-border: 0;

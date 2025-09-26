@@ -60,40 +60,8 @@ const styles = [
  ]
 
 
-const styles_old = [
- "width:30px;background-color:white",
- "width:30px;background-color:silver",
- "width:30px;background-color:gray",
- "width:30px;background-color:black",
-
- "width:30px;background-color:red",
- "width:30px;background-color:maroon",
- "width:30px;background-color:yellow",
- "width:30px;background-color:olive",
-
- "width:30px;background-color:lime",
- "width:30px;background-color:green",
- "width:30px;background-color:aqua",
- "width:30px;background-color:teal",
-
- "width:30px;background-color:blue",
- "width:30px;background-color:navy",
- "width:30px;background-color:fuchsia",
- "width:30px;background-color:purple",
- ]
 </script>
 
-<!--
-<template>
-  <VueSelect
-    v-model="selected"
-    :options="options"
-    placeholder="Select an option"
-
-    @option-selected="select"
-  />
-</template>
--->
 
 <!--
 https://vue3-select-component.vercel.app/slots.html
@@ -103,64 +71,13 @@ https://vue3-select-component.vercel.app/slots.html
   <VueSelect v-model="selected" :options="options"
     placeholder="Select2"
     @option-selected="select"
-    class="abc"
   >
     <template #option="{ option, index }"  >
 	    <div :style="styles[index]" class="item" >&ensp;&ensp;&ensp;</div>
     </template>
-  </VueSelect>;
-</template>
-
-<!--
-<template>
-  <VueSelect v-model="selected" :options="options"
-    placeholder="Select2"
-    @option-selected="select"
-  >
-    <template #option="{ option, index }">
-      {{ option.label }} - {{ index }}
-    </template>
   </VueSelect>
 </template>
--->
-<!--
-<template>
-  <VueSelect v-model="selected" :options="options"
-    placeholder="Select an option"
-    @option-selected="select"
-  >
-    <template #option="{ option, index }">
-       <PaperAirplaneIcon/>
-    </template>
-  </VueSelect>
-</template>
--->
-<!--
-<script setup lang="ts">
-import type { Option } from "vue3-select-component";
-import { ref } from "vue";
-import VueSelect from "vue3-select-component";
 
-type UserOption = Option<number> & { username: string };
-
-const selectedUser = ref<number>();
-
-const userOptions: UserOption[] = [
-  { label: "Alice", value: 1, username: "alice15" },
-  { label: "Bob", value: 2, username: "bob01" },
-  { label: "Charlie", value: 3, username: "charlie20" },
-];
-</script>
-
-<template>
-  <VueSelect
-    v-model="selectedUser"
-    :options="userOptions"
-    :get-option-label="(option) => `${option.label} (${option.username})`"
-    placeholder="Pick a user"
-  />
-</template>
--->
 
 <style scoped>
 /*
@@ -181,15 +98,4 @@ const userOptions: UserOption[] = [
   grid-template-columns: repeat(auto-fill, minmax(37px, 1fr));
 }
 
-/*
-:deep(.menu) {
-display:flex;
-width: 200px !important;
-flex-wrap: wrap;
-}
-
-:deep(.menu) > * {
-  flex: 1 1 0px;
-}
-*/
 </style>
