@@ -32,9 +32,10 @@ import { EllipsisHorizontalIcon } from './components/@heroicons/vue/24/outline'
 import { DocumentIcon } from           './components/@heroicons/vue/24/outline'
 
 import Select from "./components/Select.vue";
-import Select2 from "./components/Select2.vue";
-import Select3 from "./components/Select3.vue";
-import Select4 from "./components/Select4.vue";
+//import Select2 from "./components/Select2.vue";
+//import Select3 from "./components/Select3.vue";
+//import Select4 from "./components/Select4.vue";
+import SelectColor from "./components/SelectColor.vue";
 
 /*
 function clickA( data ) {
@@ -128,6 +129,7 @@ const toolbar_define = [
   tooltip : "B         OK",
 },
 */
+/*
 { icon : Select2,
   select: true,
   name : "Select2",
@@ -143,6 +145,12 @@ const toolbar_define = [
   select: true,
   name : "Select4",
   tooltip : "Select         OK",
+},
+*/
+{ icon : SelectColor,
+  select: true,
+  name : "SelectColor",
+  tooltip : "Select      OK",
 },
 /*
   <ArrowsPointingOutIcon class="icon" />
@@ -173,8 +181,14 @@ function toolbarItemClick(data) {
 }
 function toolbarItemToggle(data, state) {
   console.log(" App toolbar toggle:", data, state);
+}
 
+function toolbarItemSelect(name, data) {
+  console.log(" App toolbar select:", name, data);
+}
 
+function toolbarItemSelectColor(name, data) {
+  console.log(" App toolbar select color:", name, data);
 }
 </script>
 
@@ -222,6 +236,7 @@ function toolbarItemToggle(data, state) {
   <ToolbarTip7 :toolbar_define="toolbar_define"  
 		                                 @toolbarItemClick="toolbarItemClick"  
 		                                 @toolbarItemToggle="toolbarItemToggle"  
+		                                 @toolbarItemSelect="toolbarItemSelect"  
 						 />
 </div>
 </template>

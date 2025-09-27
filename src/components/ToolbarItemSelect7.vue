@@ -5,9 +5,18 @@ import { ref , defineProps, defineEmits, onMounted, useTemplateRef} from 'vue';
 const props = defineProps(['tooltip', 'name','alignright']);
 
 
-const emit = defineEmits(['toolbarItemClick', 'toolbarItemToggle']);
-const item  = useTemplateRef('item')
+//const emit = defineEmits(['toolbarItemClick', 'toolbarItemToggle']);
+const emit = defineEmits(['toolbarItemSelect']);
 
+/*
+function itemSelect(name, data) {
+      console.log("***********************", name);
+      emit('toolbarItemClick', name, data)
+}
+*/
+
+const item  = useTemplateRef('item')
+/*
 function item_mousedown(e) {
       emit('toolbarItemClick', props.name)
 }
@@ -17,10 +26,11 @@ function item_mouseup(e) {
 function item_toggle_switch(e, state) {
       emit('toolbarItemToggle', props.name, state)
 }
-
+*/
 onMounted(() => {
-     const icons = item.value.querySelectorAll(".icon")
-     icons.forEach((icon) => {
+     //const icons = item.value.querySelectorAll(".icon")
+     const items = item.value.querySelectorAll(".selectitem")
+     items.forEach((icon) => {
         // マウスオーバーで表示する
        icon.addEventListener("mouseover", function () {
            const targetIcon = this
@@ -35,6 +45,7 @@ onMounted(() => {
        });
        //icon.addEventListener("mousedown", item_mousedown) ;
        //icon.addEventListener("mouseup", item_mouseup);
+       /*
        icon.addEventListener("mousedown", function (e) {
            const targetIcon = this
            //const icon = targetIcon.parentElement
@@ -63,7 +74,7 @@ onMounted(() => {
            targetIcon.classList.remove("mouse-down")
            item_mouseup(e);
        });
- 
+ */
    });
 
 });
@@ -76,7 +87,10 @@ onMounted(() => {
 
 <template >
  <div class="item" ref="item"  :class="{ alignright : props.alignright  }" >
-  <slot  ></slot>
+ <!--
+  <slot  @itemSelect="itemSelect" ></slot>
+  -->
+  <slot></slot>
  </div>
         <div class="tooltip" >
 		<div class="tip_message">{{props.tooltip}}</div>

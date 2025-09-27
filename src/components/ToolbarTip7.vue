@@ -34,7 +34,12 @@ import ToolbarItemSelect7  from './ToolbarItemSelect7.vue'
 const props = defineProps(['toolbar_define' ]);
 
 
-const emit = defineEmits(['toolbarItemClick', 'toolbarItemToggle']);
+const emit = defineEmits(['toolbarItemClick', 
+                           'toolbarItemToggle',
+                           'toolbarItemSelect',
+                           'toolbarItemSelectColor',
+
+			   ]);
 function toggle_handler( name , state) {
 
       emit('toolbarItemToggle', name, state)
@@ -42,6 +47,13 @@ function toggle_handler( name , state) {
 }
 function click_handler( name ) {
       emit('toolbarItemClick', name)
+}
+
+function select_handler( name , data) {
+      emit('toolbarItemSelect', name, data)
+}
+function select_color_handler( name , data) {
+      emit('toolbarItemSelectColor', name, data)
 }
 
 onMounted(() => {
@@ -62,9 +74,8 @@ onMounted(() => {
         <component v-bind:is="item.icon"  class="icon" :class="{ leftspace : item.leftspace, toggle : item.toggle   }"/>
      </ToolbarItem7>
      <ToolbarItemSelect7  v-if="item.select" :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
-	                    @toolbarItemClick="click_handler"   
-	                    @toolbarItemToggle="toggle_handler"  > 
-        <component v-bind:is="item.icon"  class="select" :class="{ leftspace : item.leftspace, toggle : item.toggle   }"/>
+	                      > 
+        <component v-bind:is="item.icon"  @toolbarItemSelect="select_handler" class="select" :class="{ leftspace : item.leftspace, toggle : item.toggle   }"/>
      </ToolbarItemSelect7>
 </template>
 

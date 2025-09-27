@@ -1,10 +1,13 @@
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref , defineEmits} from "vue";
 import VueSelect from "vue3-select-component";
 
 import { PaperAirplaneIcon  } from './@heroicons/vue/24/outline'
 
+const emit = defineEmits(['toolbarItemSelect']);
+
+const name = "select A";
 const options = [
       { label: 'Option #1', value: 'option_1' },
       { label: 'Option #2', value: 'option_2' },
@@ -21,6 +24,7 @@ const selected = ref("");
 
 function select(option) {
  console.log("*** selected:", option.value, selected.value)
+ emit('toolbarItemSelect', name, selected.value)
 
 }
 
