@@ -77,7 +77,7 @@ https://vue3-select-component.vercel.app/slots.html
 	    <div :style="styles[index]" class="item" >&ensp;&ensp;&ensp;</div>
     </template>
   </VueSelect>
- </div>
+</div>
 </template>
 
 

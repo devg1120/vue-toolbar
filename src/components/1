@@ -97,13 +97,13 @@ onMounted(() => {
 }
  
 .select  {
- margin: 3px 2px; 
+ margin: 3px 0px; 
 /* margin: 3px 3px 0px 0px;*/
 /* padding: 0px 0px;*/
   --vs-border: 0;
   --vs-border-radius: 0px;
   /* --vs-padding: 0px 8px;*/
-  --vs-padding: 0px 4px;
+  --vs-padding: 3px 4px;
   --vs-min-height: 28px;
   /*
   font-size: 15px;

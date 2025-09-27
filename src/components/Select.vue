@@ -43,14 +43,17 @@ https://vue3-select-component.vercel.app/slots.html
 -->
 
 <template>
+ <div class="selectitem">
   <VueSelect v-model="selected" :options="options"
     placeholder="Select"
     @option-selected="select"
+    isClearable="false"
   >
     <template #option="{ option, index }">
       {{ option.label }} - {{ index }}
     </template>
   </VueSelect>
+  </div>
 </template>
 
 
@@ -92,3 +95,20 @@ const userOptions: UserOption[] = [
   />
 </template>
 -->
+
+<style scoped>
+
+:deep(.menu) {
+  width:160px !important;
+}
+/*
+:deep(.menu-option) {
+  --vs-option-width:160px;
+}
+*/
+/*
+:deep(.item) {
+   width:160px !important;
+}
+*/
+</style>

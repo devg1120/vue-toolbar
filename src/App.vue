@@ -33,6 +33,7 @@ import { DocumentIcon } from           './components/@heroicons/vue/24/outline'
 
 import Select from "./components/Select.vue";
 import Select2 from "./components/Select2.vue";
+import Select3 from "./components/Select3.vue";
 
 /*
 function clickA( data ) {
@@ -120,18 +121,23 @@ const toolbar_define = [
   name : "Select",
   tooltip : "Select         OK",
 },
-
+/*
 { icon : PaperAirplaneIcon,
   name : "PaperAirplaneIcon",
   tooltip : "B         OK",
 },
-
+*/
 { icon : Select2,
   select: true,
   name : "Select2",
   tooltip : "Select         OK",
 },
 
+{ icon : Select3,
+  select: true,
+  name : "Select3",
+  tooltip : "Select         OK",
+},
 /*
   <ArrowsPointingOutIcon class="icon" />
   <ArrowsPointingInIcon class="icon" />
