@@ -1,14 +1,15 @@
 
 <script setup lang="ts">
-import { ref , defineEmits} from "vue";
+import { ref , defineProps,defineEmits} from "vue";
 import VueSelect from "vue3-select-component";
 
 import { StopIcon  } from './@heroicons/vue/16/solid'
 import { PaperAirplaneIcon  } from './@heroicons/vue/24/outline'
 
+const props = defineProps(['name' ]);
+
 const emit = defineEmits(['toolbarItemSelect']);
 
-const name = "select Color";
 const select_color = ref("white");
 
       //{ label: StopIcon , value: 'silver' },
@@ -80,7 +81,7 @@ const selected = ref("");
 function select(option) {
  console.log("*** selected:", option.value, selected.value)
  select_color.value = option.value;
- emit('toolbarItemSelect', name, selected.value)
+ emit('toolbarItemSelect', props.name, selected.value)
 }
 
 function set_style(color) {

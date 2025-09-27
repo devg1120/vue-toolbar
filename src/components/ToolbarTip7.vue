@@ -75,7 +75,7 @@ onMounted(() => {
      </ToolbarItem7>
      <ToolbarItemSelect7  v-if="item.select" :tooltip="item.tooltip"  :name="item.name" :alignright="item.alignright" 
 	                      > 
-        <component v-bind:is="item.icon"  @toolbarItemSelect="select_handler" class="select" :class="{ leftspace : item.leftspace, toggle : item.toggle   }"/>
+        <component v-bind:is="item.icon"  :name="item.name" :options="item.options" @toolbarItemSelect="select_handler" class="select" :class="{ leftspace : item.leftspace, toggle : item.toggle   }"/>
      </ToolbarItemSelect7>
 </template>
 

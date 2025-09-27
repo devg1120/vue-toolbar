@@ -1,13 +1,14 @@
 
 <script setup lang="ts">
-import { ref , defineEmits} from "vue";
+import { ref , defineProps, defineEmits} from "vue";
 import VueSelect from "vue3-select-component";
 
 import { PaperAirplaneIcon  } from './@heroicons/vue/24/outline'
 
+const props = defineProps(['name','options' ]);
+
 const emit = defineEmits(['toolbarItemSelect']);
 
-const name = "select A";
 const options = [
       { label: 'Option #1', value: 'option_1' },
       { label: 'Option #2', value: 'option_2' },
@@ -24,7 +25,7 @@ const selected = ref("");
 
 function select(option) {
  console.log("*** selected:", option.value, selected.value)
- emit('toolbarItemSelect', name, selected.value)
+ emit('toolbarItemSelect', props.name, selected.value)
 
 }
 
@@ -48,7 +49,7 @@ https://vue3-select-component.vercel.app/slots.html
 
 <template>
  <div class="selectitem">
-  <VueSelect v-model="selected" :options="options"
+  <VueSelect v-model="selected" :options="props.options"
     placeholder="Select"
     @option-selected="select"
   >

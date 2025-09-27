@@ -120,7 +120,13 @@ const toolbar_define = [
 
 { icon : Select,
   select: true,
-  name : "Select",
+  name : "Select2",
+  options : [
+      { label: 'Option #1a', value: 'option_1a' },
+      { label: 'Option #2a', value: 'option_2a' },
+      { label: 'Option #3a', value: 'option_3a' },
+    ],
+
   tooltip : "Select         OK",
 },
 /*
@@ -149,7 +155,12 @@ const toolbar_define = [
 */
 { icon : SelectColor,
   select: true,
-  name : "SelectColor",
+  name : "SelectColor2",
+  options : [
+      { label: 'Option #1a', value: 'option_1a' },
+      { label: 'Option #2a', value: 'option_2a' },
+      { label: 'Option #3a', value: 'option_3a' },
+    ],
   tooltip : "Select      OK",
 },
 /*
