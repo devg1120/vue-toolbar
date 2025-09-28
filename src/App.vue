@@ -36,6 +36,7 @@ import Select from "./components/Select.vue";
 //import Select3 from "./components/Select3.vue";
 //import Select4 from "./components/Select4.vue";
 import SelectColor from "./components/SelectColor.vue";
+import SelectEmoji from "./components/SelectEmoji.vue";
 
 /*
 function clickA( data ) {
@@ -156,6 +157,16 @@ const toolbar_define = [
 { icon : SelectColor,
   select: true,
   name : "SelectColor2",
+  options : [
+      { label: 'Option #1a', value: 'option_1a' },
+      { label: 'Option #2a', value: 'option_2a' },
+      { label: 'Option #3a', value: 'option_3a' },
+    ],
+  tooltip : "Select      OK",
+},
+{ icon : SelectEmoji,
+  select: true,
+  name : "SelectEmoji",
   options : [
       { label: 'Option #1a', value: 'option_1a' },
       { label: 'Option #2a', value: 'option_2a' },
