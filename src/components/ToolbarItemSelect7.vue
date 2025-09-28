@@ -43,6 +43,11 @@ onMounted(() => {
            const activeTooltip = targetIcon.parentElement.nextElementSibling
            activeTooltip.classList.remove("tip_active")
        });
+       icon.addEventListener("mousedown", function () {
+           const targetIcon = this
+           const activeTooltip = targetIcon.parentElement.nextElementSibling
+           activeTooltip.classList.remove("tip_active")
+       });
        //icon.addEventListener("mousedown", item_mousedown) ;
        //icon.addEventListener("mouseup", item_mouseup);
        /*
