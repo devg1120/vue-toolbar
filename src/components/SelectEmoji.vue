@@ -152,14 +152,21 @@ https://vue3-select-component.vercel.app/slots.html
   /*--vs-option-padding: 8px 12px; */
   --vs-option-padding: 4px 6px;
 }
-
+/*
 :deep(.single-value) {
   padding:2px 3px;
+}
+*/
+
+:deep(.value-container) {
+  margin-top:4px;
+    margin-left:6px;
 }
 
 :deep(.input-container) {
   background-color: v-bind(select_color);
   /* color: v-bind(select_color); */
+
   width:16px;
   height:16px;
 

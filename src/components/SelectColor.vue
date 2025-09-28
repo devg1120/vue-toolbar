@@ -144,6 +144,10 @@ https://vue3-select-component.vercel.app/slots.html
 }
 
 
+:deep(.value-container) {
+  margin-top:5px;
+}
+
 :deep(.input-container) {
   background-color: v-bind(select_color);
   /* color: v-bind(select_color); */
